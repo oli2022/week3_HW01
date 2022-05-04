@@ -14,4 +14,12 @@ const deleteError = (res, err) => {
     });
 };
 
-module.exports = { errorHandle, deleteError };
+const deleteAllError = (res, err) => {
+    res.status(400).json({
+        status: '結果：失敗',
+        message: '網址錯誤',
+        err,
+    });
+};
+
+module.exports = { errorHandle, deleteError, deleteAllError };
