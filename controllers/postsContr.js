@@ -25,7 +25,6 @@ const postsController = {
     deleteOne: async (req, res) => {
         try {
             const id = req.params.id;
-            console.log(id);
             await postsModel.findByIdAndDelete(id);
             res.status(200).json({
                 status: '刪除單筆資料成功',
