@@ -22,4 +22,13 @@ const deleteAllError = (res, err) => {
     });
 };
 
-module.exports = { errorHandle, deleteError, deleteAllError };
+// 帳密空白
+const nullError = (res, err) => {
+    res.status(400).json({
+        status: '結果：輸入無效文字',
+        message: '帳號、密碼 不可為空白',
+        err,
+    });
+};
+
+module.exports = { errorHandle, deleteError, deleteAllError, nullError };

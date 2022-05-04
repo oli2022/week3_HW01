@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 // 引用檔案postsModel.js
 const postsModel = require('../models/postsModel');
-const { errorHandle, deleteError, deleteAllError } = require('../responseHandle/errorHandle');
+const { errorHandle, deleteError, deleteAllError, nullError } = require('../responseHandle/errorHandle');
 
 const postsController = {
     getAllPosts: async (req, res) => {
@@ -19,7 +19,7 @@ const postsController = {
                 status: '新增單筆資料成功',
             });
         } catch (error) {
-            errorHandle(res, error);
+            nullError(res, error);
         }
     },
     deleteOne: async (req, res) => {
